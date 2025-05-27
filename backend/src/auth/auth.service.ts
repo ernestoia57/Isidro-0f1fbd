@@ -24,6 +24,16 @@ export class AuthService {
     return user;
   }
 
+  async signup(username: string, password: string) {
+  const existing = await this.usersService.findByUsername(username);
+  if (existing) {
+    throw new Error('El usuario ya existe');
+  }
+
+  return this.usersService.create(username, password);
+  }
+
+
   login(user: any) {
     const payload = { sub: user.id, username: user.username };
     return {
@@ -31,3 +41,4 @@ export class AuthService {
     };
   }
 }
+
