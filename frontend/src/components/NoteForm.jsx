@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { createNote } from '../services/noteService';
-import * as React from 'react';
-import IconButton from '@mui/material/IconButton';
 
 export default function NoteForm({ onSuccess, notes, setTab }) {
   const [title, setTitle] = useState('');

@@ -11,13 +11,13 @@ export default function Login({ onLogin }) {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:3000/auth/login', {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/auth/login`, {
         username,
         password,
       });
 
-      localStorage.setItem('token', res.data.token); // guarda el JWT
-      onLogin(); // avisa al padre que ya está logueado
+      localStorage.setItem('token', res.data.token);
+      onLogin();
     } catch (err) {
       setError('Credenciales inválidas');
     }

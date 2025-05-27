@@ -26,7 +26,7 @@ export default function NoteItem({ note, onDelete, onUpdate }) {
   }, [showMenu]);
 
   const handleArchiveToggle = async () => {
-    await fetch(`http://localhost:3000/notes/${note.id}`, {
+    await fetch(`${import.meta.env.VITE_API_URL}/notes/${note.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ archived: !note.archived }),
@@ -39,7 +39,7 @@ export default function NoteItem({ note, onDelete, onUpdate }) {
   };
 
   const updateNoteCategories = async (categories) => {
-    await fetch(`http://localhost:3000/notes/${note.id}`, {
+    await fetch(`${import.meta.env.VITE_API_URL}/notes/${note.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ categories }),
@@ -233,7 +233,7 @@ export default function NoteItem({ note, onDelete, onUpdate }) {
                   return;
                 }
 
-                await fetch(`http://localhost:3000/notes/${note.id}`, {
+                await fetch(`${import.meta.env.VITE_API_URL}/notes/${note.id}`, {
                   method: 'PATCH',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({ title: editedTitle, content: editedContent }),
