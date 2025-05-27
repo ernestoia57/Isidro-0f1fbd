@@ -107,13 +107,13 @@ export default function NoteList() {
         marginBottom: '20px',
         justifyContent: 'center'
       }}>
-        <button onClick={() => setTab('all')}>Todas</button>
+        <button onClick={() => setTab('all')}>All</button>
         {allCategories.map(cat => (
           <button key={cat} onClick={() => setTab(cat)}>{cat}</button>
         ))}
-        <button onClick={() => setTab('archived')}>♻︎ Archivadas</button>
-        <button onClick={() => setTab('listActive')}>☑︎ Lista activas</button>
-        <button onClick={() => setTab('listArchived')}>◻︎ Lista archivadas</button>
+        <button onClick={() => setTab('archived')}>♻︎ Archived</button>
+        <button onClick={() => setTab('listActive')}>☑︎ Active list</button>
+        <button onClick={() => setTab('listArchived')}>◻︎ Archived list</button>
       </div>
 
       {/* Notes render */}
