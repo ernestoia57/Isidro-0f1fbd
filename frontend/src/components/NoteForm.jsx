@@ -26,7 +26,7 @@ export default function NoteForm({ onSuccess, notes, setTab }) {
 
     if (!categories.includes(trimmed)) {
       if (!knownCategories.includes(trimmed)) {
-        const confirmCreate = window.confirm("¿Categoría desconocida, desea crearla?");
+        const confirmCreate = window.confirm("Unknown category. Create?");
         if (!confirmCreate) return;
       }
       setCategories([...categories, trimmed]);
@@ -45,14 +45,14 @@ export default function NoteForm({ onSuccess, notes, setTab }) {
         
         <input
           type="text"
-          placeholder="Título"
+          placeholder="Title"
           value={title}
           onChange={e => setTitle(e.target.value)}
           className="block w-full min-w-0 bg-neutral-800 border border-neutral-700 rounded px-4 py-2 text-white"
         />
         <div></div>
         <textarea
-          placeholder="Contenido"
+          placeholder="Content"
           value={content}
           onChange={e => setContent(e.target.value)}
           className="block w-full min-w-0 bg-neutral-800 border border-neutral-700 rounded px-4 py-2 text-white"
@@ -63,7 +63,7 @@ export default function NoteForm({ onSuccess, notes, setTab }) {
       <div className="flex items-center gap-4">
         <input
           type="text"
-          placeholder="Nueva categoría"
+          placeholder="New category"
           value={categoryInput}
           onChange={e => setCategoryInput(e.target.value)}
           className="w-full block min-w-0 bg-neutral-800 border border-neutral-700 rounded px-4 py-2 text-white"
@@ -85,7 +85,7 @@ export default function NoteForm({ onSuccess, notes, setTab }) {
           >
             <button
               type="button"
-              title="Eliminar categoría"
+              title="Delete"
               onClick={() => removeCategory(cat)}
               className="text-white bg-red-600 hover:bg-red-700 rounded-full w-5 h-5 flex items-center justify-center text-xs"
             >
@@ -104,7 +104,7 @@ export default function NoteForm({ onSuccess, notes, setTab }) {
             : 'bg-white text-black hover:bg-gray-300'
         }`}
       >
-        Agregar nota
+        Add Note
       </button>
     </form>
   );

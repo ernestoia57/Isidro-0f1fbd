@@ -40,7 +40,7 @@ export default function NoteList() {
           ))}
         </div>
       ) : (
-        <p>No hay notas archivadas.</p>
+        <p>No archived notes.</p>
       );
     }
 
@@ -89,7 +89,7 @@ export default function NoteList() {
             <NoteItem key={note.id} note={note} onDelete={handleDelete} onUpdate={loadNotes} />
           ))
         ) : (
-          <p style={{ color: 'white' }}>No hay notas para esta categoría.</p>
+          <p style={{ color: 'white' }}>No notes in this category.</p>
         )}
       </div>
     );
@@ -97,9 +97,9 @@ export default function NoteList() {
 
   return (
     <div>
-      <h1>Notas</h1>
+      <h1>Notes</h1>
 
-      {/* ✅ Mantén los botones de filtrado */}
+      {/* Filtering buttons */}
       <div style={{
         display: 'flex',
         flexWrap: 'wrap',
@@ -116,7 +116,7 @@ export default function NoteList() {
         <button onClick={() => setTab('listArchived')}>◻︎ Lista archivadas</button>
       </div>
 
-      {/* ✅ El renderizado de las notas, que incluye el formulario */}
+      {/* Notes render */}
       {renderNotes()}
     </div>
   );

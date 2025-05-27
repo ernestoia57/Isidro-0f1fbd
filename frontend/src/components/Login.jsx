@@ -19,7 +19,7 @@ export default function Login({ onLogin }) {
       localStorage.setItem('token', res.data.token);
       onLogin();
     } catch (err) {
-      setError('Credenciales inválidas');
+      setError('Invalid Credentials');
     }
   };
 
@@ -28,13 +28,13 @@ export default function Login({ onLogin }) {
       <h2>Iniciar Sesión</h2>
       <form onSubmit={handleSubmit}>
         <input
-          placeholder="Usuario"
+          placeholder="User"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         /><br /><br />
         <input
           type="password"
-          placeholder="Contraseña"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         /><br /><br />

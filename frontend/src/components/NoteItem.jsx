@@ -95,7 +95,7 @@ export default function NoteItem({ note, onDelete, onUpdate }) {
         ))}
       </div>
 
-      {/* Botón de menú (⋮) */}
+      {/* Menu (⋮) */}
       <button
         onClick={() => setShowMenu(!showMenu)}
         style={{
@@ -112,7 +112,7 @@ export default function NoteItem({ note, onDelete, onUpdate }) {
         ⋮
       </button>
 
-      {/* Menú contextual */}
+      {/* Context menu */}
       {showMenu && (
         <div
           ref={menuRef}
@@ -133,7 +133,7 @@ export default function NoteItem({ note, onDelete, onUpdate }) {
             Editar categorías
           </button>
           <button onClick={()=> {handleArchiveToggle(); setShowMenu(false)}} style={menuItemStyle}>
-            {note.archived ? 'Desarchivar' : 'Archivar'}
+            {note.archived ? 'Unarchive' : 'Archive'}
           </button>
           <button onClick={async () => { await handleDelete(); setShowMenu(false); }} style={menuItemStyle}>
             Eliminar
@@ -141,12 +141,12 @@ export default function NoteItem({ note, onDelete, onUpdate }) {
         </div>
       )}
 
-      {/* Editor de categorías */}
+      {/* Category editor */}
       {showCategoryEditor && (
         <div style={{ marginTop: '10px' }}>
           <input
             type="text"
-            placeholder="Agregar categoría"
+            placeholder="Add category"
             value={newCategory}
             onChange={e => setNewCategory(e.target.value)}
             style={{ padding: '4px', marginRight: '6px' }}
@@ -174,7 +174,7 @@ export default function NoteItem({ note, onDelete, onUpdate }) {
             ))}
           </div>
 
-          {/* Botón de cierre (check) */}
+          {/* Close button (check) */}
           <div style={{ marginTop: '8px' }}>
             <button
               onClick={() => setShowCategoryEditor(false)}
@@ -193,20 +193,20 @@ export default function NoteItem({ note, onDelete, onUpdate }) {
         </div>
       )}
 
-      {/* Editor de título y contenido */}
+      {/* Title and content editor */}
       {isEditing && (
         <div style={{ marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
           <input
             type="text"
             value={editedTitle}
             onChange={(e) => setEditedTitle(e.target.value)}
-            placeholder="Nuevo título"
+            placeholder="New title"
             style={{ padding: '4px', borderRadius: '4px' }}
           />
           <textarea
             value={editedContent}
             onChange={(e) => setEditedContent(e.target.value)}
-            placeholder="Nuevo contenido"
+            placeholder="New content"
             style={{ padding: '4px', borderRadius: '4px', resize: 'vertical' }}
           />
           <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px' }}>
@@ -224,12 +224,12 @@ export default function NoteItem({ note, onDelete, onUpdate }) {
                 borderRadius: '4px'
               }}
             >
-              Cancelar
+              Cancel
             </button>
             <button
               onClick={async () => {
                 if (!editedTitle.trim() || !editedContent.trim()) {
-                  alert("El título y el contenido no pueden estar vacíos.");
+                  alert("This can't be empty.");
                   return;
                 }
 
@@ -250,7 +250,7 @@ export default function NoteItem({ note, onDelete, onUpdate }) {
                 borderRadius: '4px'
               }}
             >
-              Guardar
+              Save
             </button>
           </div>
         </div>
